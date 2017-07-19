@@ -1,0 +1,6 @@
+<div [@dialog] *ngIf="visible" class="dialog">
+<app-user-new  (createNewUserEvent)="create($event)"></app-user-new>
+  <button *ngIf="closable" (click)="close()" aria-label="Close" class="dialog__close-btn">X</button>
+</div>
+<div *ngIf="visible" class="overlay" (click)="close()"></div>
+<!--<app-user-new (createNewUserEvent)="create($event)"></app-user-new>-->

@@ -1,0 +1,17 @@
+<h3>کاربران ما</h3>
+<app-alert></app-alert>
+<ul *ngFor="let user of users">
+   <li>{{user.name}}</li>
+
+</ul>
+<h3>ثبت نام کنید</h3>
+    <button (click)="showDialog = !showDialog" class="btn btn-success btn-lg">ایجاد حساب</button>
+
+    <app-user-dialog   (cholo)="create($event)" [(visible)]="showDialog">
+
+    </app-user-dialog>
+
+<app-user-list [users]="users" (destroyEventEmmiter)="destroy($event )" (updateUserEvent)="update($event)"></app-user-list>
+
+
+

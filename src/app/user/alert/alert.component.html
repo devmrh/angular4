@@ -1,0 +1,3 @@
+<div  #alr *ngIf="message" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">{{message.text}}
+  <button (click)="alr.remove()"  aria-label="Close" class="dialog__close-btn">X</button>
+</div>

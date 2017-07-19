@@ -1,0 +1,34 @@
+
+<h3>ویرایش</h3>
+<form
+
+        [formGroup]="heroUser"
+        (ngSubmit)="update(heroUser.value)"
+>
+
+  <input type="hidden" [ngModel]="user.id" formControlName="id">
+
+  <input class="form-control" [ngModel]="user.name" [ngClass]="{'bot' : !heroUser.controls['name'].valid && heroUser.controls['name'].touched }" type="text" name="name" formControlName="name"><br>
+  <span *ngIf="heroUser.controls['name'].touched && !heroUser.controls['name'].valid && heroUser.controls['name'].value != ''">مقدار وارد شده مورد قبلول نیست</span>
+  <span *ngIf="heroUser.controls['name'].touched && heroUser.controls['name'].value == ''">مقدار وارد شده نمیتواند خالی باشد</span>
+  <span ngClass="gr" *ngIf="heroUser.controls['name'].valid">خوبه!</span>
+
+  <input class="form-control" [ngModel]="user.username" [ngClass]="{'bot' : !heroUser.controls['username'].valid && heroUser.controls['username'].touched }" type="text" name="username" formControlName="username"><br>
+  <span *ngIf="heroUser.controls['username'].touched && !heroUser.controls['username'].valid && heroUser.controls['username'].value != ''">مقدار وارد شده مورد قبلول نیست</span>
+  <span *ngIf="heroUser.controls['username'].touched && heroUser.controls['username'].value == ''">مقدار وارد شده نمیتواند خالی باشد</span>
+  <span ngClass="gr" *ngIf="heroUser.controls['username'].valid">خوبه!</span>
+
+  <input class="form-control" [ngModel]="user.email" [ngClass]="{'bot' : !heroUser.controls['email'].valid && heroUser.controls['email'].touched }" type="text" name="email" formControlName="email"><br>
+  <span *ngIf="heroUser.controls['email'].touched && !heroUser.controls['email'].valid && heroUser.controls['email'].value != ''">مقدار وارد شده مورد قبلول نیست</span>
+  <span *ngIf="heroUser.controls['email'].touched && heroUser.controls['email'].value == ''">مقدار وارد شده نمیتواند خالی باشد</span>
+  <span ngClass="gr" *ngIf="heroUser.controls['email'].valid">خوبه!</span>
+
+  <input class="form-control" [ngModel]="user.phone" [ngClass]="{'bot' : !heroUser.controls['phone'].valid && heroUser.controls['phone'].touched }"  type="text" name="phone" formControlName="phone"><br>
+  <span *ngIf="heroUser.controls['phone'].touched && !heroUser.controls['phone'].valid && heroUser.controls['phone'].value != ''">مقدار وارد شده مورد قبلول نیست</span>
+  <span *ngIf="heroUser.controls['phone'].touched && heroUser.controls['phone'].value == ''">مقدار وارد شده نمیتواند خالی باشد</span>
+  <span ngClass="gr" *ngIf="heroUser.controls['phone'].valid">خوبه!</span>
+  <br>
+  <input class="btn btn-success" [ngClass]="{'bl': !heroUser.valid}" type="submit" [disabled]="!heroUser.valid" value="ثبت">
+<br>
+</form>
+

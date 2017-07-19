@@ -1,0 +1,32 @@
+<h3>ثبت کاربر جدید</h3>
+
+<form
+        [formGroup]="heroUser"
+        (ngSubmit)="create(heroUser.value)"
+>
+    <label for="name">نام شما :‌</label>
+    <input  class="form-control" [ngClass]="{'bot' : !heroUser.controls['name'].valid && heroUser.controls['name'].touched }" type="text" id="name" name="name" formControlName="name">
+    <span  ngClass="gr" *ngIf="heroUser.controls['name'].valid">خوبه!</span>
+    <span *ngIf="heroUser.controls['name'].touched && heroUser.get('name').hasError('minlength')">نام شما نمیتواند کمتر از سه حرف باشد</span>
+    <span *ngIf="heroUser.controls['name'].touched && heroUser.get('name').hasError('maxlength')">نام شما نمیتواند بیشتر از ده حرف باشد</span>
+    <br>
+    <label for="username">نام کاربری :‌</label>
+    <input class="form-control" [ngClass]="{'bot' : !heroUser.controls['username'].valid && heroUser.controls['username'].touched}" type="text" id="username" name="username" formControlName="username">
+    <span *ngIf="heroUser.controls['username'].touched && heroUser.get('username').hasError('minlength')">نام کاربری باید حداقل شامل سه حرف باشد</span>
+    <span ngClass="gr" *ngIf="heroUser.controls['username'].valid">خوبه!</span>
+    <br>
+    <label for="email">ایمیل شما :‌</label>
+    <input class="form-control" [ngClass]="{'bot' : !heroUser.controls['email'].valid && heroUser.controls['email'].touched }" type="text" name="email" id="email" formControlName="email">
+    <span *ngIf="heroUser.controls['email'].touched && !heroUser.controls['email'].valid">لطفا ایمیل صحیح  وارد نمایید</span>
+    <span ngClass="gr" *ngIf="heroUser.controls['email'].valid">خوبه!</span>
+    <br>
+    <label for="phone">همراه :‌</label>
+    <input class="form-control" [ngClass]="{'bot' : !heroUser.controls['phone'].valid && heroUser.controls['phone'].touched }"  type="text" name="phone" id="phone" formControlName="phone">
+    <span *ngIf="heroUser.controls['phone'].touched && !heroUser.controls['phone'].valid ">شماره تلفن را بصورت صحیح وارد کنید</span>
+    <span ngClass="gr" *ngIf="heroUser.controls['phone'].valid">خوبه!</span>
+    <br>
+    <input  [ngClass]="{'bl': !heroUser.valid}" type="submit" [disabled]="!heroUser.valid">
+
+</form>
+
+
