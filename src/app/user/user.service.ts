@@ -11,19 +11,19 @@ export class UserService {
     }
 
     create(user) {
-        return this._http.post('http://localhost/api/create.php', user)
+        return this._http.post('http://angularcrud-angularcrud.7e14.starter-us-west-2.openshiftapps.com/api/create.php', user)
     }
 
     ndelete(user) {
-        return this._http.post('http://localhost/api/delete.php', {'id': user}).map(() => this.getUsers())
+        return this._http.post('http://angularcrud-angularcrud.7e14.starter-us-west-2.openshiftapps.com/api/delete.php', {'id': user}).map(() => this.getUsers())
     }
 
     update(user) {
-        return this._http.post('http://localhost/api/update.php', user).map(()=>"");
+        return this._http.post('http://angularcrud-angularcrud.7e14.starter-us-west-2.openshiftapps.com/api/update.php', user).map(()=>"");
     }
 
     getUsers() {
-        return this._http.get("http://localhost/api/getAll.php").map(data => data.json())
+        return this._http.get("http://angularcrud-angularcrud.7e14.starter-us-west-2.openshiftapps.com/api/getAll.php").map(data => data.json())
     }
 
     // getUser(user: User): Observable <User> {
